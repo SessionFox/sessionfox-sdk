@@ -14,7 +14,7 @@ SessionFox SDK should be triggered at the beginning of application launch.
 
 ```
 repositories {
-    mavenCentral()
+    google()
     maven {
         url "https://mymavenrepo.com/repo/PENxspKoeuoFCKp9veSD/"
     }
@@ -23,13 +23,13 @@ repositories {
 
 3. In the app build.gradle, add following snippet inside dependencies
 ```java
-implementation ('com.sessionfox:sessionfox-sdk:1.0@aar') {
+implementation ('com.sessionfox:sessionfox-sdk:1.0.1-alpha@aar') {
   transitive = true
   }
 ```
     
 4. In your Android Manifest, add the following line
-```xml <meta-data android:name="SESSION_FOX_AUTH_TOKEN" android:value="<your-auth-token>" />```
+```xml <meta-data android:name="SESSION_FOX_API_KEY" android:value="<your-api-key>" />```
 
 Please replace  with app token obtained from support@sessionfox.com.
 
@@ -39,9 +39,6 @@ SessionFox.init(this);
 
 // Tag screen name visited
 SessionFox.tagScreenName("com.sample.CheckoutScreen");
-
-// Tag sub screen name visited
-SessionFox.tagSubScreenName("com.sample.CheckoutSubScreen");
 
 // Send custom user meta data
 SessionFox.setUser(userHashmap);
@@ -64,15 +61,22 @@ SessionFox.sendEvent("purchase",purchaseDetailsHashmap);
 
 ### Including library in Android project
 
-1. Add the line to your android/app/src/main/AndroidManifest.xml
-
-``` 
-<meta-data android:name="SESSION_FOX_AUTH_TOKEN" android:value="<your-auth-token>" />
+1. In the app build.gradle, add following outside dependencies, outermost scope
 ```
-Please replace  with app token obtained from support@sessionfox.com.
+repositories {
+    google()
+    maven {
+        url "https://mymavenrepo.com/repo/PENxspKoeuoFCKp9veSD/"
+    }
+}
+```
+2. Add the line to your android/app/src/main/AndroidManifest.xml
+``` 
+<meta-data android:name="SESSION_FOX_API_KEY" android:value="<your-api-key>" />
+```
+Please replace with api key got from registering on the website.
 
-
-2. 
+3. Usage
 ```javascript
 import SessionFoxRN from 'sessionfox-rn';
 
@@ -81,9 +85,6 @@ SessionFoxRN.init();
 
 // Tag screen name visited
 SessionFoxRN.tagScreenName('com.sample.CheckoutScreen');
-
-// Tag sub screen name visited
-SessionFoxRN.tagSubScreenName('com.sample.CheckoutSubScreen');
 
 // Send custom user meta data
 SessionFoxRN.setUser({
@@ -98,3 +99,4 @@ SessionFoxRN.sendEvent('purchase',{
 });
 ```
   
+
