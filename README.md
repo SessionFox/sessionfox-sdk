@@ -23,7 +23,7 @@ repositories {
 
 3. In the app build.gradle, add following snippet inside dependencies
 ```java
-implementation ('com.sessionfox:sessionfox-sdk:1.0.1-alpha@aar') {
+implementation ('com.sessionfox:sessionfox-sdk:1.0.3-alpha@aar') {
   transitive = true
   }
 ```
@@ -38,7 +38,7 @@ Please replace  with app token obtained from support@sessionfox.com.
 SessionFox.init(this);
 
 // Tag screen name visited
-SessionFox.tagScreenName("com.sample.CheckoutScreen");
+SessionFox.setScreen("com.sample.CheckoutScreen");
 
 // Send custom user meta data
 SessionFox.setUser(userHashmap);
@@ -61,15 +61,20 @@ SessionFox.sendEvent("purchase",purchaseDetailsHashmap);
 
 ### Including library in Android project
 
-1. In the app build.gradle, add following outside dependencies, outermost scope
+1. In the build.gradle inside your android folder, add following outside dependencies, outermost scope
 ```
-repositories {
-    google()
-    maven {
-        url "https://mymavenrepo.com/repo/PENxspKoeuoFCKp9veSD/"
+allprojects {
+    repositories {
+        jcenter()
+        google()
+        maven {
+            url "https://mymavenrepo.com/repo/PENxspKoeuoFCKp9veSD/"
+        }
     }
 }
 ```
+Note: If your gradle version is below 3.0.0, you will have to upgrade gradle inside the above file to 3.0.0 version in your <Project>and sync project in Android Studio.
+
 2. Add the line to your android/app/src/main/AndroidManifest.xml
 ``` 
 <meta-data android:name="SESSION_FOX_API_KEY" android:value="<your-api-key>" />
