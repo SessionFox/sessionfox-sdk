@@ -63,7 +63,7 @@ SessionFox.sendEvent("purchase",purchaseDetailsHashmap);
 
 ### Including library in Android project
 
-1. In the build.gradle inside your android folder, add following outside dependencies, outermost scope
+1. In the build.gradle inside your android folder, add following inside allprojects.repositories
 ```
 allprojects {
     repositories {
