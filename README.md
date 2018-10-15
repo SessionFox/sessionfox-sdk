@@ -96,12 +96,12 @@ SessionFoxRN.tagScreenName('com.sample.CheckoutScreen');
 // Send custom user meta data
 SessionFoxRN.setUser({
   name: 'Mark',
-  rollnum: 25,
+  rollnum: '25',
 });
 
 // Send custom event
 SessionFoxRN.sendEvent('purchase',{
-  amount: 30,
+  amount: '30',
   card: 'hdfc',
 });
 ```
