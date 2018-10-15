@@ -10,13 +10,15 @@ SessionFox SDK should be triggered at the beginning of application launch.
 
 1. Create a new project in Android Studio or Open an existing application project
 
-2. In the app build.gradle, add following outside dependencies, outermost scope
+2. In the app build.gradle, add following inside allprojects.repositories
 
 ```
-repositories {
-    google()
-    maven {
-        url "https://mymavenrepo.com/repo/PENxspKoeuoFCKp9veSD/"
+allprojects{
+    repositories {
+        google()
+        maven {
+            url "https://mymavenrepo.com/repo/PENxspKoeuoFCKp9veSD/"
+        }  
     }
 }
 ```
