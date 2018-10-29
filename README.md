@@ -16,6 +16,7 @@ SessionFox SDK should be triggered at the beginning of application launch.
 allprojects{
     repositories {
         google()
+        jcenter()
         maven {
             url "https://mymavenrepo.com/repo/PENxspKoeuoFCKp9veSD/"
         }  
@@ -67,8 +68,8 @@ SessionFox.sendEvent("purchase",purchaseDetailsHashmap);
 ```
 allprojects {
     repositories {
-        jcenter()
         google()
+        jcenter()
         maven {
             url "https://mymavenrepo.com/repo/PENxspKoeuoFCKp9veSD/"
         }
